@@ -1,5 +1,5 @@
 const path = require("path");
-const { Sequelize, Model } = require("sequelize");
+const { Sequelize, DataTypes, Model } = require("sequelize");
 
 // TODO - create the new sequelize connection
 
@@ -13,8 +13,10 @@ const db = new Sequelize({
 });
 
 module.exports = {
-  sequelize,
+  db,
   Sequelize,
+  DataTypes,
+  Model,
 };
 
 // npm init -y

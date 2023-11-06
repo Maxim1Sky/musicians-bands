@@ -4,17 +4,8 @@ const { Song } = require("./models/Song");
 
 const { db } = require("./db");
 // Define associations here
-
-async function main() {
-  //await db.sync({ force: true });
-
-  const newMusician = await Musician.create({
-    name: "John",
-    instrument: "Guitar",
-  });
-}
-
-main();
+Band.hasMany(Musician);
+Musician.belongsTo(Band);
 
 module.exports = {
   Band,

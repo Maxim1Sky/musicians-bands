@@ -12,7 +12,7 @@ const db = new Sequelize({
   },
 });
 
-//db.authenticate(); // run it once
+db.authenticate(); // run it once
 
 module.exports = {
   db,

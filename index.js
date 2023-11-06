@@ -7,6 +7,9 @@ const { db } = require("./db");
 Band.hasMany(Musician);
 Musician.belongsTo(Band);
 
+Song.belongsToMany(Band, { through: "songBand" });
+Band.belongsToMany(Song, { through: "songBand" });
+
 module.exports = {
   Band,
   Musician,

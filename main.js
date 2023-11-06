@@ -4,6 +4,7 @@ const { db } = require("./db");
 async function main() {
   await db.sync({ force: true });
 
+  // FILL THE TABLES WITH DATA
   const imgaBand = await Band.create({ name: "Imagine Dragons", genre: "Pop" });
   const fewBands = await Band.bulkCreate([
     { name: "Driving Birds", genre: "Awesoem genre" },
@@ -23,6 +24,8 @@ async function main() {
   ]);
   const farSong = await Song.findByPk(1);
 
+  // SET THE RELATIONSHIP
+
   //await slythHouse.setUsers([malfoy, tom]); <--- Help
   //await theChosenOne.setProfessors(alProf);
   await imgaBand.setMusicians(allMusi); // <---- One-To-Mane, one band and many musicians
@@ -32,6 +35,7 @@ async function main() {
   // You can remove this ^ line, it doesn't really makes
 
   // PRINT STUFF
+
   //const bandWithMusicians = await Band.findByPk(1, { include: Musician });
   const songToBands = await Song.findByPk(1, { include: Band });
   const imagBandSongs = await imgaBand.getSongs(); // <---- useful thing

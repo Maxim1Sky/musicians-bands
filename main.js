@@ -19,7 +19,7 @@ async function main() {
 
   const coolSongs = await Song.bulkCreate([
     { title: "Far Away", year: 2009, length: 198 },
-    { titla: "Web In the Sky", year: 2017, length: 155 },
+    { title: "Web In the Sky", year: 2017, length: 155 },
   ]);
   const farSong = await Song.findByPk(1);
 
@@ -31,11 +31,12 @@ async function main() {
   await imgaBand.setSongs(coolSongs); // imagBand has those 'coolSongs, but farSong also belongs to 'fewBands' (doesn't really makes sense, but still)
   // You can remove this ^ line, it doesn't really makes
 
+  // PRINT STUFF
   //const bandWithMusicians = await Band.findByPk(1, { include: Musician });
   const songToBands = await Song.findByPk(1, { include: Band });
+  const imagBandSongs = await imgaBand.getSongs(); // <---- useful thing
 
-  //console.log(JSON.stringify(bandWithMusicians, null, 2));
-  console.log(JSON.stringify(songToBands, null, 2));
+  console.log(JSON.stringify(imagBandSongs, null, 2));
 }
 
 main();
